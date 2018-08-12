@@ -16,7 +16,7 @@ const Dictionary = require("oxford-dictionary-api");
 const wordscramble = require('wordscramble');
 
 // Config
-const config = require('./config');
+// const config = require('./config');
 
 
 // headers to fix CORS issues
@@ -35,11 +35,11 @@ app.use(bodyParser.json());
 
 // Dictionary API
 // Define dictionary api variables from config file
-let app_id = config.DICT_APP_ID;
-let app_key = config.DICT_APP_KEY;
+//let app_id = config.DICT_APP_ID;
+//let app_key = config.DICT_APP_KEY;
 
 // Dictionary constructor
-let dict = new Dictionary(app_id, app_key);
+//let dict = new Dictionary(app_id, app_key);
 
 
 // Pre-defined words for users
@@ -111,7 +111,7 @@ app.post('/word', (req, res) => {
     // Check what's coming back in req.body
     // console.log(req.body);
 
-    dict.find(wordToCheck, (err, data) => {
+  //  dict.find(wordToCheck, (err, data) => {
         
         if (err) {
             // console.log('error:', err);
@@ -121,7 +121,7 @@ app.post('/word', (req, res) => {
 
         res.sendStatus(200);
         // console.log(data);
-    });
+  //  });
 });
 
 
@@ -144,7 +144,7 @@ io.on('connection', function(socket) {
     //////////////////////////////
 
     socket.on('create-game', (data) => {
-
+console.log(data);
         let currGameIndex = '';
         let currGameID = '';
 

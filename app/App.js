@@ -44,7 +44,7 @@ export default class App extends React.Component {
       user_b_score: 0,
 
       // sockets
-      ip: 'http://10.32.5.219:3001',
+      ip: 'http://192.168.1.3:3001',
 
       // for styling, etc
       myClasses: null
@@ -243,12 +243,13 @@ export default class App extends React.Component {
         username: u
       }, () => {
           
+          console.log(u);
           // Send an emit to server to create a game object in 'games' array
           socket.emit('create-game', { nickname: u })
 
           // when server sends a 'game-info' emit...
           socket.on('game-info', (data) => {
-
+console.log(data);
             // Go to setup scene and pass in data from socket
             Actions.setup({ 
               gameType: 'new',
